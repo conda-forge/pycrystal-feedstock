@@ -1,13 +1,13 @@
 {% set name = "pycrystal" %}
-{% set version = "1.0.16" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pycrystal-{{ version }}.tar.gz
-  sha256: 5328c82dca0ccb769f67605ae7bca8bff2c9d841eff69a7e8c2ea70063a73487
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pycrystal-{{ version }}.tar.gz
+  sha256: 6d39033dc01b461d9646d2caf140f28ed99a818c6cdd5c5f93e9f8ec61acca35
   patches:
     - bs4.patch
 
