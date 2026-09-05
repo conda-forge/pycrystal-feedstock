@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: pycrystal
+  version: "1.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pycrystal-${{ version }}.tar.gz
+  sha256: 6d39033dc01b461d9646d2caf140f28ed99a818c6cdd5c5f93e9f8ec61acca35
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - ase
+    - pyparsing
+    - requests
+    - bs4
+
+tests:
+  - python:
+      imports:
+        - pycrystal
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Utilities for ab initio modeling suite CRYSTAL
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/tilde-lab/pycrystal
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
